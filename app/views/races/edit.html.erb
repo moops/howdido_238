@@ -1,0 +1,24 @@
+<h1>Editing race</h1>
+
+<% form_for(@race) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :race_on %><br />
+    <%= f.date_select :race_on %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @race %> |
+<%= link_to 'Back', races_path %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  race_on: 2009-12-21
+  name: MyString
+  location: MyString
+
+two:
+  race_on: 2009-12-21
+  name: MyString
+  location: MyString
