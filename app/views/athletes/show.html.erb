@@ -1,0 +1,18 @@
+<p>
+  <b>First name:</b>
+  <%=h @athlete.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%=h @athlete.last_name %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @athlete.city %>
+</p>
+
+
+<%= link_to 'Edit', edit_athlete_path(@athlete) %> |
+<%= link_to 'Back', athletes_path %>
