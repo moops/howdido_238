@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  athlete_id: 1
+  race_id: 1
+  overall_place: 1
+  bib: MyString
+  div: MyString
+  div_place: 1
+
+two:
+  athlete_id: 1
+  race_id: 1
+  overall_place: 1
+  bib: MyString
+  div: MyString
+  div_place: 1

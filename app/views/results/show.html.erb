@@ -1,0 +1,33 @@
+<p>
+  <b>Athlete:</b>
+  <%=h @result.athlete_id %>
+</p>
+
+<p>
+  <b>Race:</b>
+  <%=h @result.race_id %>
+</p>
+
+<p>
+  <b>Overall place:</b>
+  <%=h @result.overall_place %>
+</p>
+
+<p>
+  <b>Bib:</b>
+  <%=h @result.bib %>
+</p>
+
+<p>
+  <b>Div:</b>
+  <%=h @result.div %>
+</p>
+
+<p>
+  <b>Div place:</b>
+  <%=h @result.div_place %>
+</p>
+
+
+<%= link_to 'Edit', edit_result_path(@result) %> |
+<%= link_to 'Back', results_path %>

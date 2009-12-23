@@ -1,0 +1,36 @@
+<h1>Editing result</h1>
+
+<% form_for(@result) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :athlete_id %><br />
+    <%= f.text_field :athlete_id %>
+  </p>
+  <p>
+    <%= f.label :race_id %><br />
+    <%= f.text_field :race_id %>
+  </p>
+  <p>
+    <%= f.label :overall_place %><br />
+    <%= f.text_field :overall_place %>
+  </p>
+  <p>
+    <%= f.label :bib %><br />
+    <%= f.text_field :bib %>
+  </p>
+  <p>
+    <%= f.label :div %><br />
+    <%= f.text_field :div %>
+  </p>
+  <p>
+    <%= f.label :div_place %><br />
+    <%= f.text_field :div_place %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @result %> |
+<%= link_to 'Back', results_path %>
