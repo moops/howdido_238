@@ -1,31 +1,37 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
+  id: 1
   first_name: Adam
   last_name: Lawrence
   city: Victoria
 
 two:
+  id: 2
   first_name: Mark
   last_name: Ritchie
   city: Victoria
 
 three:
+  id: 3
   first_name: Allan
   last_name: Boos
   city: Victoria
 
 four:
+  id: 4
   first_name: Marcus
   last_name: Durrant
   city: Sidney
 
 five:
+  id: 5
   first_name: Bertrand
   last_name: Bozek
   city: Saanich
 
 six:
+  id: 6
   first_name: Gary
   last_name: Duncan
   city: Victoria

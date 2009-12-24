@@ -2,6 +2,7 @@
 
 # mark in compassion tri
 one:
+  id: 1
   athlete_id: 2
   race_id: 1
   overall_place: 24
@@ -11,6 +12,7 @@ one:
 
 # allan in compassion tri
 two:
+  id: 2
   athlete_id: 3
   race_id: 1
   overall_place: 1
@@ -20,6 +22,7 @@ two:
 
 # marcus in compassion tri
 three:
+  id: 3
   athlete_id: 4
   race_id: 1
   overall_place: 14
@@ -29,6 +32,7 @@ three:
 
 # bertrand in compassion tri
 four:
+  id: 4
   athlete_id: 5
   race_id: 1
   overall_place: 10
@@ -38,6 +42,7 @@ four:
 
 # mark in chemainus
 five:
+  id: 5
   athlete_id: 2
   race_id: 2
   overall_place: 19
@@ -47,6 +52,7 @@ five:
 
 # gary in chemainus
 five:
+  id: 6
   athlete_id: 6
   race_id: 2
   overall_place: 19
