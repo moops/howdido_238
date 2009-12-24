@@ -1,17 +1,55 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
+# mark in compassion tri
 one:
-  athlete_id: 1
+  athlete_id: 2
+  race_id: 1
+  overall_place: 24
+  bib: 235
+  div: M4049
+  div_place: 4
+
+# allan in compassion tri
+two:
+  athlete_id: 3
   race_id: 1
   overall_place: 1
-  bib: MyString
-  div: MyString
+  bib: 110
+  div: M3039
   div_place: 1
 
-two:
-  athlete_id: 1
+# marcus in compassion tri
+three:
+  athlete_id: 4
   race_id: 1
-  overall_place: 1
-  bib: MyString
-  div: MyString
-  div_place: 1
+  overall_place: 14
+  bib: 146
+  div: M5059
+  div_place: 3
+
+# bertrand in compassion tri
+four:
+  athlete_id: 5
+  race_id: 1
+  overall_place: 10
+  bib: 111
+  div: M3039
+  div_place: 4
+
+# mark in chemainus
+five:
+  athlete_id: 2
+  race_id: 2
+  overall_place: 19
+  bib: 746
+  div: M4049
+  div_place: 7
+
+# gary in chemainus
+five:
+  athlete_id: 6
+  race_id: 2
+  overall_place: 19
+  bib: 746
+  div: M4049
+  div_place: 7

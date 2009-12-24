@@ -12,6 +12,9 @@
 ActiveRecord::Schema.define(:version => 20091221081853) do
 
   create_table "athletes", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "city"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

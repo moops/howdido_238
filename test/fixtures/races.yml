@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  race_on: 2009-12-21
-  name: MyString
-  location: MyString
+  race_on: 2009-07-12
+  name: Tri of Compassion
+  location: Esquimalt
 
 two:
-  race_on: 2009-12-21
-  name: MyString
-  location: MyString
+  race_on: 2009-06-16
+  name: Chemainus Twilight Shuffle
+  location: Chemainus
