@@ -82,4 +82,18 @@ class RacesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+
+  # POST /results/load
+  def load
+    #@lines = Array.new
+    #params[:datafile].open {
+    logger.debug('original name: ' + params[:datafile].original_filename)
+    logger.debug('path: ' + params[:datafile].path)
+    # flash[:notice] = 15.to_s + ' results loaded.'
+    respond_to do |format|
+      format.html { redirect_to(races_url) }
+      format.xml  { head :ok }
+    end
+  end
 end

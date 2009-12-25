@@ -1,6 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
+
+  # map.connect 'results/load', :controller =>  'results', :action => 'load'
   map.resources :results
 
+  map.load_results 'races/:id/load', :controller => 'races', :action => 'load'
   map.resources :races
 
   map.resources :athletes

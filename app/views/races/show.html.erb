@@ -13,6 +13,15 @@
   <%=h @race.location %>
 </p>
 
-
 <%= link_to 'Edit', edit_race_path(@race) %> |
 <%= link_to 'Back', races_path %>
+
+<% if @race.results.empty? %>
+  <h1>load results</h1>
+  <% form_tag(load_results_url, :multipart => true) do %>
+    <%= hidden_field_tag(:id, @race.id) %>
+    <p><label for="datafile">Select File</label> : 
+    <%= file_field_tag('datafile') %></p>
+    <%= submit_tag "Upload" %>
+  <% end %>
+<% end %>
