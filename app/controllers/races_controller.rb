@@ -86,11 +86,40 @@ class RacesController < ApplicationController
 
   # POST /results/load
   def load
-    #@lines = Array.new
-    #params[:datafile].open {
-    logger.debug('original name: ' + params[:datafile].original_filename)
-    logger.debug('path: ' + params[:datafile].path)
-    # flash[:notice] = 15.to_s + ' results loaded.'
+    race = Race.find(params[:id])
+    first_name_index = params[:first_name_index].to_i - 1
+    last_name_index = params[:last_name_index].to_i - 1
+    city_index = params[:city_index].to_i - 1
+    bib_index = params[:bib_index].to_i - 1
+    div_index = params[:div_index].to_i - 1
+    div_place_index = params[:div_place_index].to_i - 1
+    overall_place_index = params[:overall_place_index].to_i - 1
+    
+    data_found = false
+    params[:datafile].readlines.each do |l|
+      line = l.split(' ')
+      if data_found
+        
+        #create athlete
+        a = Athlete.new
+        a.first_name = line[first_name_index] if first_name_index
+        a.last_name = line[last_name_index] if last_name_index
+        a.city = line[city_index] if city_index
+        a.save
+        
+        #create result
+        r = Result.new
+        r.athlete = a if a 
+        r.race = race if race 
+        r.overall_place = line[overall_place_index] if overall_place_index
+        r.div = line[div_index] if div_index 
+        r.div_place = line[div_place_index] if div_place_index
+        r.bib = line[bib_index] if bib_index
+        r.save
+      end
+      data_found = line[0] == '=====' unless data_found
+    end
+
     respond_to do |format|
       format.html { redirect_to(races_url) }
       format.xml  { head :ok }
