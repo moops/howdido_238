@@ -31,8 +31,8 @@
     </mx:columns>
   </mx:DataGrid>
 
-  <mx:HTTPService id="rqRaces" url="http://localhost:3000/races.xml" useProxy="false" method="GET"/>
-  <mx:HTTPService id="rqAthletes" url="http://localhost:3000/athletes.xml" useProxy="false" method="GET">
+  <mx:HTTPService id="rqRaces" url="http://localhost:3002/races.xml" useProxy="false" method="GET"/>
+  <mx:HTTPService id="rqAthletes" url="http://localhost:3002/athletes.xml" useProxy="false" method="GET">
     <mx:request xmlns="">
       <race_id>{dgRaces.selectedItem.id}</race_id>
     </mx:request>
