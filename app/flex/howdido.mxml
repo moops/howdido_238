@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="getRaces()">
+
+  <mx:Script>
+    <![CDATA[
+      private function getRaces():void {
+        racesRequest.send();
+      }
+    ]]>
+  </mx:Script>
+
+  <mx:DataGrid id="dgRacesRequest" x="22" y="128" dataProvider="{racesRequest.lastResult.races.race}">
+    <mx:columns>
+      <mx:DataGridColumn headerText="Name" dataField="name"/>
+      <mx:DataGridColumn headerText="Location" dataField="location"/>
+      <mx:DataGridColumn headerText="Date" dataField="race-on"/>
+    </mx:columns>
+  </mx:DataGrid>
+
+  <mx:HTTPService id="racesRequest" url="http://localhost:3000/races.xml" useProxy="false" method="GET"/>
+
+</mx:Application>
+
