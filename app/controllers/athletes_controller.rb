@@ -2,7 +2,16 @@ class AthletesController < ApplicationController
   # GET /athletes
   # GET /athletes.xml
   def index
-    @athletes = Athlete.all
+    if params[:race_id]
+      @athletes = Array.new
+      race = Race.find(params[:race_id])
+      results = race.results
+      results.each do |r|
+        @athletes << r.athlete
+      end
+    else 
+      @athletes = Athlete.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

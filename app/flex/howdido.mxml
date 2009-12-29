@@ -4,20 +4,39 @@
   <mx:Script>
     <![CDATA[
       private function getRaces():void {
-        racesRequest.send();
+        rqRaces.send();
       }
     ]]>
   </mx:Script>
 
-  <mx:DataGrid id="dgRacesRequest" x="22" y="128" dataProvider="{racesRequest.lastResult.races.race}">
+  <mx:DataGrid id="dgRaces" x="22" y="128" dataProvider="{rqRaces.lastResult.races.race}">
     <mx:columns>
+      <mx:DataGridColumn headerText="id" dataField="id"/>
       <mx:DataGridColumn headerText="Name" dataField="name"/>
       <mx:DataGridColumn headerText="Location" dataField="location"/>
       <mx:DataGridColumn headerText="Date" dataField="race-on"/>
     </mx:columns>
   </mx:DataGrid>
 
-  <mx:HTTPService id="racesRequest" url="http://localhost:3000/races.xml" useProxy="false" method="GET"/>
+  <mx:Form>
+    <mx:TextInput id="selectedRace" text="{dgRaces.selectedItem.name}"/>
+    <mx:Button label="Get Athletes" click="rqAthletes.send()"/>
+  </mx:Form>
+  
+  <mx:DataGrid id="dgAthletes" dataProvider="{rqAthletes.lastResult.athletes.athlete}">
+    <mx:columns>
+      <mx:DataGridColumn headerText="First Name" dataField="first-name"/>
+      <mx:DataGridColumn headerText="Last Name" dataField="last-name"/>
+      <mx:DataGridColumn headerText="City" dataField="city"/>
+    </mx:columns>
+  </mx:DataGrid>
+
+  <mx:HTTPService id="rqRaces" url="http://localhost:3000/races.xml" useProxy="false" method="GET"/>
+  <mx:HTTPService id="rqAthletes" url="http://localhost:3000/athletes.xml" useProxy="false" method="GET">
+    <mx:request xmlns="">
+      <race_id>{dgRaces.selectedItem.id}</race_id>
+    </mx:request>
+  </mx:HTTPService>
 
 </mx:Application>
 
