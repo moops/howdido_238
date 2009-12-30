@@ -2,8 +2,12 @@ class ResultsController < ApplicationController
   # GET /results
   # GET /results.xml
   def index
-    @results = Result.all
-
+    if params[:race_id]
+      @results = Race.find(params[:race_id]).results
+    else 
+      @results = Result.all
+    end
+ 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @results }
