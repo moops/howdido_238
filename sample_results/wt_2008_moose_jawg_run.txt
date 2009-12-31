@@ -25,7 +25,7 @@ Place Race# Name                      Div    Time    Pace
    17   393 SCOTT MASLASZ             M4049    45:51  4:36 
    18   310 ANDY BROCCOLO             M2029    46:06  4:37 
    19   330 WILLEM GEYER              M4049    46:17  4:38 
-   20   418 JOE JACKSON                        47:24  4:45 
+   20   418 JOE JACKSON               M3039    47:24  4:45 
    21   356 ANNA MRAVCAK              F2029    47:44  4:47 
    22   390 ROWENA COLLINS-HUBER      F4049    47:45  4:47 
    23   351 JONATHAN MCLEAN           M2029    48:04  4:49 

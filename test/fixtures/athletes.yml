@@ -5,33 +5,39 @@ one:
   first_name: Adam
   last_name: Lawrence
   city: Victoria
+  gender: m
 
 two:
   id: 2
   first_name: Mark
   last_name: Ritchie
   city: Victoria
+  gender: m
 
 three:
   id: 3
   first_name: Allan
   last_name: Boos
   city: Victoria
+  gender: m
 
 four:
   id: 4
   first_name: Marcus
   last_name: Durrant
   city: Sidney
+  gender: f
 
 five:
   id: 5
   first_name: Bertrand
   last_name: Bozek
   city: Saanich
+  gender: m
 
 six:
   id: 6
   first_name: Gary
   last_name: Duncan
   city: Victoria
+  gender: m
