@@ -11,3 +11,9 @@ two:
   race_on: 2009-06-16
   name: Chemainus Twilight Shuffle
   location: Chemainus
+  
+three:
+  id: 3
+  race_on: 2009-11-28
+  name: Stewart Mountain Cross Country
+  location: Thetis Lake

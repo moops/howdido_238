@@ -10,7 +10,14 @@ class ResultsController < ApplicationController
  
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @results }
+      format.xml  { 
+        full_results = Array.new
+        @results.each do |r|
+          a = r.athlete
+          full_results << a
+        end
+        render :xml => @results 
+      }
     end
   end
 

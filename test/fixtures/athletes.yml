@@ -2,42 +2,50 @@
 
 one:
   id: 1
-  first_name: Adam
-  last_name: Lawrence
+  first_name: adam
+  last_name: lawrence
   city: Victoria
   gender: m
+  birth_date: 1969-07-09
+  accurate_birth_date: true
 
 two:
   id: 2
-  first_name: Mark
-  last_name: Ritchie
+  first_name: mark
+  last_name: ritchie
   city: Victoria
   gender: m
+  birth_date: 1965-01-01
 
 three:
   id: 3
-  first_name: Allan
-  last_name: Boos
+  first_name: allan
+  last_name: boos
   city: Victoria
   gender: m
+  birth_date: 1975-01-01
 
 four:
   id: 4
-  first_name: Marcus
-  last_name: Durrant
+  first_name: marcus
+  last_name: durrant
   city: Sidney
   gender: f
+  birth_date: 1960-01-01
 
 five:
   id: 5
-  first_name: Bertrand
-  last_name: Bozek
+  first_name: bertrand
+  last_name: bozek
   city: Saanich
   gender: m
+  birth_date: 1975-10-01
 
 six:
   id: 6
-  first_name: Gary
-  last_name: Duncan
+  first_name: gary
+  last_name: duncan
   city: Victoria
   gender: m
+  birth_date: 1959-05-25
+  accurate_birth_date: true

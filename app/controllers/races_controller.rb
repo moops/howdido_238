@@ -98,17 +98,30 @@ class RacesController < ApplicationController
     gun_time_index = params[:gun_time_index].to_i unless params[:gun_time_index].empty?
     chip_time_index = params[:chip_time_index].to_i unless params[:chip_time_index].empty?
     penalty_time_index = params[:penalty_time_index].to_i unless params[:penalty_time_index].empty?
+    age_index = params[:age_index].to_i unless params[:age_index].empty?
 
     data_found = false
     params[:datafile].readlines.each do |l|
       line = l.split(' ')
       if data_found
-        
-        #create athlete
-        a = Athlete.new
-        a.first_name = line[first_name_index] if first_name_index
-        a.last_name = line[last_name_index] if last_name_index
+        first_name = line[first_name_index].downcase
+        last_name = line[last_name_index].downcase
+        #find and update or create athlete
+        a = Athlete.find_by_first_name_and_last_name(first_name, last_name)
+        unless a
+          a = Athlete.new
+          a.first_name = first_name
+          a.last_name = last_name
+        end
+        #set age
+        if age_index
+          a.birth_date = race_on << (line[age_index].to_i.*12)
+        end
         a.city = line[city_index] if city_index
+        if div_index
+          a.guess_gender(line[div_index])
+          a.guess_birth_date(race.race_on, line[div_index]) unless age_index
+        end
         a.save
         
         #create result
@@ -138,10 +151,7 @@ class RacesController < ApplicationController
     parts = time_string.split(':')
     parts.reverse!
     parts.each_with_index do |p,i|
-      logger.info('i: ' + i.to_s + ' time: ' + time.to_s + ' parts: ' + parts.inspect)
-      part = parts[i]
-      logger.info('part: ' + part.to_s + ' exponent: ' + (60**i).to_s + ' add: ' + (part * (60**(i-1))).to_s)
-      time += (parts[i].to_i * (60**i))
+      time += (p.to_i * (60**i))
     end
     time
   end

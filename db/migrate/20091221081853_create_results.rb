@@ -4,6 +4,9 @@ class CreateResults < ActiveRecord::Migration
       t.integer :athlete_id
       t.integer :race_id
       t.integer :overall_place
+      t.integer :gun_time 
+      t.integer :chip_time
+      t.integer :penalty_time
       t.string :bib
       t.string :div
       t.integer :div_place

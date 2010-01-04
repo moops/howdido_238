@@ -9,15 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091230204445) do
+ActiveRecord::Schema.define(:version => 20091221081853) do
 
   create_table "athletes", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "city"
+    t.string   "gender"
+    t.date     "birth_date"
+    t.boolean  "accurate_birth_date", :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "gender"
   end
 
   create_table "races", :force => true do |t|
@@ -32,14 +34,14 @@ ActiveRecord::Schema.define(:version => 20091230204445) do
     t.integer  "athlete_id"
     t.integer  "race_id"
     t.integer  "overall_place"
+    t.integer  "gun_time"
+    t.integer  "chip_time"
+    t.integer  "penalty_time"
     t.string   "bib"
     t.string   "div"
     t.integer  "div_place"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "gun_time"
-    t.integer  "chip_time"
-    t.integer  "penalty_time"
   end
 
 end
