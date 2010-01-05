@@ -5,13 +5,13 @@
     xmlns:mx="library://ns.adobe.com/flex/halo" creationComplete="rqRaces.send();">
  
   <fx:Declarations>
-    <mx:HTTPService id="rqRaces" url="http://localhost:3002/races.xml" useProxy="false" method="GET"/>
-    <mx:HTTPService id="rqAthletes" url="http://localhost:3002/athletes.xml" useProxy="false" method="GET">
+    <mx:HTTPService id="rqRaces" url="http://localhost:3000/races.xml" useProxy="false" method="GET"/>
+    <mx:HTTPService id="rqAthletes" url="http://localhost:3000/athletes.xml" useProxy="false" method="GET">
       <mx:request xmlns="">
         <race_id>{dgRaces.selectedItem.id}</race_id>
       </mx:request>
     </mx:HTTPService>
-    <mx:HTTPService id="rqResults" url="http://localhost:3002/results.xml" useProxy="false" method="GET">
+    <mx:HTTPService id="rqResults" url="http://localhost:3000/results.xml" result="onResult();" useProxy="false" method="GET">
       <mx:request xmlns="">
         <race_id>{dgRaces.selectedItem.id}</race_id>
       </mx:request>
@@ -24,6 +24,12 @@
 
   <fx:Script>
     <![CDATA[
+
+      private function onResult():void {
+        trace(rqResults.lastResult.results);
+        resultsXml.text = rqResults.lastResult.results;
+      }
+
       private function showResults():void {
         rqResults.send();
         mainStack.selectedChild = bxHowdido;
@@ -65,9 +71,9 @@
              paddingBottom="25" paddingLeft="25" paddingRight="25" paddingTop="25"
              hideEffect="{wipeDown}" showEffect="{wipeUp}">
 
-      <mx:Label text="{dgRaces.selectedItem.name}"/>
-      <mx:Label text="athlete: "/>
-      <mx:TextInput text="{dgAthletes.selectedItem.id}"/>
+      <mx:Label text="race: {dgRaces.selectedItem.name}"/>
+      <mx:Label text="athlete: {dgAthletes.selectedItem.id}"/>
+      <mx:TextArea width="260" height="85"  id="resultsXml" text="result: {result}"/>
       <mx:DataGrid id="dgResults" dataProvider="{rqResults.lastResult.results.result}">
         <mx:columns>
           <mx:DataGridColumn headerText="id" dataField="id" visible="false"/>
