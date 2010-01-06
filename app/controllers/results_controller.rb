@@ -26,7 +26,7 @@ class ResultsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @result }
+      format.xml  { render :xml => @result.summary_xml }
     end
   end
 

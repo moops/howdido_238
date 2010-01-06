@@ -5,10 +5,10 @@
     xmlns:mx="library://ns.adobe.com/flex/halo" creationComplete="rqRaces.send();">
  
   <fx:Declarations>
-    <mx:HTTPService id="rqRaces" url="http://localhost:3000/races.xml" useProxy="false" method="GET"/>
-    <mx:HTTPService id="rqAthletes" url="http://localhost:3000/races/{dgRaces.selectedItem.id}/athletes.xml" useProxy="false" method="GET"/>
-    <mx:HTTPService id="rqResults" url="http://localhost:3000/races/{dgRaces.selectedItem.id}/results.xml" useProxy="false" method="GET"/>
-    <mx:HTTPService id="rqResult" url="http://localhost:3000/results/{dgRaces.selectedItem.id}/{dgAthletes.selectedItem.id}.xml" useProxy="false" method="GET"/>
+    <mx:HTTPService id="rqRaces" url="http://localhost:3002/races.xml" useProxy="false" method="GET"/>
+    <mx:HTTPService id="rqAthletes" url="http://localhost:3002/races/{dgRaces.selectedItem.id}/athletes.xml" useProxy="false" method="GET"/>
+    <mx:HTTPService id="rqResults" url="http://localhost:3002/races/{dgRaces.selectedItem.id}/results.xml" useProxy="false" method="GET"/>
+    <mx:HTTPService id="rqResult" url="http://localhost:3002/results/{dgRaces.selectedItem.id}/{dgAthletes.selectedItem.id}.xml" useProxy="false" method="GET"/>
 
     <mx:WipeUp id="wipeUp" duration="400"/>
     <mx:WipeDown id="wipeDown" duration="400"/>

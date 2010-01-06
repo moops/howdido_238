@@ -2,7 +2,7 @@ class Result < ActiveRecord::Base
   belongs_to :race
   belongs_to :athlete
 
-  def to_xml
+  def summary_xml
     # results = Result.find(:all, :conditions => ['race_id = ?', self.race_id])
     results = self.race.results
     oa_winner = nil
@@ -46,6 +46,18 @@ class Result < ActiveRecord::Base
       xml.num_oa_faster(num_oa_faster)
       xml.perc_oa_faster(num_oa_faster.to_f / num_oa * 100)
       xml.num_oa_slower(num_oa_slower)
+      xml.results {
+        results.each do |r|
+          xml.result { |x|
+            x.athlete_id(r.athlete.id)
+            x.div(r.div)
+            x.bib(r.bib)
+            x.overall_place(r.overall_place)
+            x.div_place(r.div_place)
+            x.gun_time(r.gun_time)
+          }
+        end
+      }
       # xml.perc_div_faster(num_div_faster.to_f / num_div * 100)
     }
 
