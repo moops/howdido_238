@@ -18,8 +18,7 @@
 
 <% if @race.results.empty? %>
   <h1>load results</h1>
-  <% form_tag(load_results_url, :multipart => true) do %>
-    <%= hidden_field_tag(:id, @race.id) %>
+  <% form_tag(load_results_url(:race_id => @race), :multipart => true) do %>
     <p><label for="datafile">Select File</label> : <%= file_field_tag('datafile') %></p>
 	<p><label for="first_name_index">first name</label> : <%= text_field_tag('first_name_index') %></p>
 	<p><label for="last_name_index">last name</label> : <%= text_field_tag('last_name_index') %></p>

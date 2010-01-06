@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.find_result 'results/:race_id/:athlete_id.:format', :controller => 'results', :action => 'show'
   map.race_athletes 'races/:race_id/athletes.:format', :controller => 'athletes', :action => 'index'
-  map.load_results 'races/:id/load', :controller => 'races', :action => 'load'
+  map.load_results 'races/:race_id/results/load', :controller => 'results', :action => 'load'
   map.resources :races, :has_many => :results
 
   map.resources :athletes, :has_many => :results
