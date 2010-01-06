@@ -5,10 +5,9 @@
     xmlns:mx="library://ns.adobe.com/flex/halo" creationComplete="rqRaces.send();">
  
   <fx:Declarations>
-    <mx:HTTPService id="rqRaces" url="http://localhost:3002/races.xml" useProxy="false" method="GET"/>
-    <mx:HTTPService id="rqAthletes" url="http://localhost:3002/races/{dgRaces.selectedItem.id}/athletes.xml" useProxy="false" method="GET"/>
-    <mx:HTTPService id="rqResults" url="http://localhost:3002/races/{dgRaces.selectedItem.id}/results.xml" useProxy="false" method="GET"/>
-    <mx:HTTPService id="rqResult" url="http://localhost:3002/results/{dgRaces.selectedItem.id}/{dgAthletes.selectedItem.id}.xml" useProxy="false" method="GET"/>
+    <mx:HTTPService id="rqRaces" url="http://localhost:3000/races.xml" useProxy="false" method="GET"/>
+    <mx:HTTPService id="rqAthletes" url="http://localhost:3000/races/{dgRaces.selectedItem.id}/athletes.xml" useProxy="false" method="GET"/>
+    <mx:HTTPService id="rqResult" url="http://localhost:3000/results/{dgRaces.selectedItem.id}/{dgAthletes.selectedItem.id}.xml" useProxy="false" method="GET"/>
 
     <mx:WipeUp id="wipeUp" duration="400"/>
     <mx:WipeDown id="wipeDown" duration="400"/>
@@ -29,7 +28,7 @@
     ]]>
   </fx:Script>
 
-  <mx:ViewStack id="mainStack" borderStyle="solid" height="100%" width="100%" creationCompleteEffect="{wipeRight}">
+  <mx:ViewStack id="mainStack" borderStyle="solid" width="100%" creationCompleteEffect="{wipeRight}">
 
     <mx:VBox id="bxFindAthlete" 
              paddingBottom="25" paddingLeft="25" paddingRight="25" paddingTop="25"
@@ -62,14 +61,14 @@
 
       <mx:Label text="race: {dgRaces.selectedItem.name}"/>
       <mx:Label text="athlete: {dgAthletes.selectedItem.id}"/>
-      <mx:TextArea width="260" height="85"  id="resultXml" text="{rqResult.lastResult.result.bib}"/>
-      <mx:DataGrid id="dgResults" dataProvider="{rqResults.lastResult.results.result}">
+      <mx:TextArea width="260" height="85"  id="resultXml" text="{rqResult.lastResult.result.perc_oa_faster}"/>
+      <mx:DataGrid id="dgResults" dataProvider="{rqResult.lastResult.result.results.result}">
         <mx:columns>
           <mx:DataGridColumn headerText="id" dataField="id" visible="false"/>
-          <mx:DataGridColumn headerText="Athlete" dataField="athlete-id"/>
-          <mx:DataGridColumn headerText="Overall" dataField="overall-place"/>
+          <mx:DataGridColumn headerText="Athlete" dataField="athlete_id"/>
+          <mx:DataGridColumn headerText="Overall" dataField="overall_place"/>
           <mx:DataGridColumn headerText="Division" dataField="div"/>
-          <mx:DataGridColumn headerText="Div Place" dataField="div-place"/>
+          <mx:DataGridColumn headerText="Div Place" dataField="div_place"/>
         </mx:columns>
       </mx:DataGrid>
       <s:Button label="back to search" click="showFindAthlete();"/>
