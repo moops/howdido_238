@@ -31,4 +31,5 @@ class Athlete < ActiveRecord::Base
       self.gender = 'u'
     end
   end
+
 end

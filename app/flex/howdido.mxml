@@ -6,16 +6,9 @@
  
   <fx:Declarations>
     <mx:HTTPService id="rqRaces" url="http://localhost:3000/races.xml" useProxy="false" method="GET"/>
-    <mx:HTTPService id="rqAthletes" url="http://localhost:3000/athletes.xml" useProxy="false" method="GET">
-      <mx:request xmlns="">
-        <race_id>{dgRaces.selectedItem.id}</race_id>
-      </mx:request>
-    </mx:HTTPService>
-    <mx:HTTPService id="rqResults" url="http://localhost:3000/results.xml" result="onResult();" useProxy="false" method="GET">
-      <mx:request xmlns="">
-        <race_id>{dgRaces.selectedItem.id}</race_id>
-      </mx:request>
-    </mx:HTTPService>
+    <mx:HTTPService id="rqAthletes" url="http://localhost:3000/races/{dgRaces.selectedItem.id}/athletes.xml" useProxy="false" method="GET"/>
+    <mx:HTTPService id="rqResults" url="http://localhost:3000/races/{dgRaces.selectedItem.id}/results.xml" useProxy="false" method="GET"/>
+    <mx:HTTPService id="rqResult" url="http://localhost:3000/results/{dgRaces.selectedItem.id}/{dgAthletes.selectedItem.id}.xml" useProxy="false" method="GET"/>
 
     <mx:WipeUp id="wipeUp" duration="400"/>
     <mx:WipeDown id="wipeDown" duration="400"/>
@@ -25,18 +18,14 @@
   <fx:Script>
     <![CDATA[
 
-      private function onResult():void {
-        trace(rqResults.lastResult.results);
-        resultsXml.text = rqResults.lastResult.results;
-      }
-
-      private function showResults():void {
-        rqResults.send();
-        mainStack.selectedChild = bxHowdido;
-      }
       private function showFindAthlete():void {
         mainStack.selectedChild = bxFindAthlete;
       }
+      private function showResults():void {
+        rqResult.send();
+        mainStack.selectedChild = bxHowdido;
+      }
+
     ]]>
   </fx:Script>
 
@@ -73,7 +62,7 @@
 
       <mx:Label text="race: {dgRaces.selectedItem.name}"/>
       <mx:Label text="athlete: {dgAthletes.selectedItem.id}"/>
-      <mx:TextArea width="260" height="85"  id="resultsXml" text="result: {result}"/>
+      <mx:TextArea width="260" height="85"  id="resultXml" text="{rqResult.lastResult.result.bib}"/>
       <mx:DataGrid id="dgResults" dataProvider="{rqResults.lastResult.results.result}">
         <mx:columns>
           <mx:DataGridColumn headerText="id" dataField="id" visible="false"/>

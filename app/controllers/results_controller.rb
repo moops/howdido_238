@@ -10,21 +10,19 @@ class ResultsController < ApplicationController
  
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { 
-        full_results = Array.new
-        @results.each do |r|
-          a = r.athlete
-          full_results << a
-        end
-        render :xml => @results 
-      }
+      format.xml  { render :xml => @results }
     end
   end
 
-  # GET /results/1
+  # GET /results/1/2.xml - race_id and athlete_id
+  # GET /results/1 - result_id
   # GET /results/1.xml
   def show
-    @result = Result.find(params[:id])
+    if params[:race_id] and params[:athlete_id]
+      @result = Result.find(:first, :conditions => { :race_id => params[:race_id], :athlete_id => params[:athlete_id] })
+    else
+      @result = Result.find(params[:id])
+    end
 
     respond_to do |format|
       format.html # show.html.erb

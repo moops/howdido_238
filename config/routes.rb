@@ -1,12 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
 
-  # map.connect 'results/load', :controller =>  'results', :action => 'load'
-  map.resources :results
-
+  map.find_result 'results/:race_id/:athlete_id.:format', :controller => 'results', :action => 'show'
+  map.race_athletes 'races/:race_id/athletes.:format', :controller => 'athletes', :action => 'index'
   map.load_results 'races/:id/load', :controller => 'races', :action => 'load'
-  map.resources :races
+  map.resources :races, :has_many => :results
 
-  map.resources :athletes
+  map.resources :athletes, :has_many => :results
+
+  map.resources :results
 
   # The priority is based upon order of creation: first created -> highest priority.
 
