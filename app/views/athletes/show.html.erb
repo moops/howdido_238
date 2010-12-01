@@ -16,3 +16,24 @@
 
 <%= link_to 'Edit', edit_athlete_path(@athlete) %> |
 <%= link_to 'Back', athletes_path %>
+
+<p>
+<b>races:</b>
+<ul>
+<% for race in @athlete.races %>
+    <li><%=h race.name %>
+      <ul>
+      <% for result in race.results %>
+        <li>
+          <% if result.athlete_id == @athlete.id %>
+            <b><%=h result.overall_place %> | <%=h result.gun_time %></b>
+          <% else %>
+            <%=h result.overall_place %> | <%=h result.gun_time %>
+          <% end %>
+        </li>
+      <% end %>
+      </ul>
+    </li>
+<% end %>
+</ul>
+</p>

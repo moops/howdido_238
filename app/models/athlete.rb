@@ -1,5 +1,6 @@
 class Athlete < ActiveRecord::Base
   has_many :results
+  has_many :races, :through => :results
   
   def guess_birth_date(race_on, div)
     age = nil
