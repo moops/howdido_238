@@ -1,4 +1,7 @@
 class AthletesController < ApplicationController
+
+  layout 'standard'
+
   # GET /athletes
   # GET /athletes.xml
   def index

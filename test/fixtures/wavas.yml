@@ -1,0 +1,75 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  age: 1
+  m1m: 
+  m2m: 
+  m3m: 
+  m5k: 
+  m8k: 
+  m10k: 
+  m12k: 
+  m15k: 
+  m10m: 
+  m20k: 
+  mM2: 
+  m25k: 
+  m30k: 
+  mM: 
+  m50k: 
+  m50m: 
+  m100k: 
+  f1m: 
+  f2m: 
+  f3m: 
+  f5k: 
+  f8k: 
+  f10k: 
+  f12k: 
+  f15k: 
+  f10m: 
+  f20k: 
+  fM2: 
+  f25k: 
+  f30k: 
+  fM: 
+  f50k: 
+  f50m: 
+  f100k: 
+
+two:
+  age: 1
+  m1m: 
+  m2m: 
+  m3m: 
+  m5k: 
+  m8k: 
+  m10k: 
+  m12k: 
+  m15k: 
+  m10m: 
+  m20k: 
+  mM2: 
+  m25k: 
+  m30k: 
+  mM: 
+  m50k: 
+  m50m: 
+  m100k: 
+  f1m: 
+  f2m: 
+  f3m: 
+  f5k: 
+  f8k: 
+  f10k: 
+  f12k: 
+  f15k: 
+  f10m: 
+  f20k: 
+  fM2: 
+  f25k: 
+  f30k: 
+  fM: 
+  f50k: 
+  f50m: 
+  f100k: 
